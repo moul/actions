@@ -1,4 +1,3 @@
-FROM        moul/actions-base:v1.1.0
-RUN         apk add --no-cache jq curl
+FROM        moul/actions-base:v1.1.1
 COPY        entrypoint.sh /entrypoint.sh
 ENTRYPOINT  ["/entrypoint.sh"]
