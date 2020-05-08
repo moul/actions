@@ -1,0 +1,35 @@
+name: "moul/actions"
+description: "personal GitHub actions"
+author: "moul"
+inputs:
+  run:
+    description: "execute command. [lgtm, fail]"
+    required: true
+  directory:
+    description: "working directory"
+    default: "."
+    required: false
+  comment:
+    description: "send comment to PR if true"
+    default: true
+    required: false
+  token:
+    description: "GitHub token. This is required for posting."
+    default: ""
+    required: false
+#  flags:
+#    description: "add flags"
+#    default: ""
+#    required: false
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.run }}
+    - ${{ inputs.directory }}
+    - ${{ inputs.comment }}
+    - ${{ inputs.token }}
+#    - ${{ inputs.flags }}
+branding:
+  icon: "alert-triangle"
+  color: "yellow"
